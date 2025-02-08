@@ -19,8 +19,8 @@ func (api *EmailAPI) SendNotification(ctx context.Context, req *notification.Sen
 	)
 
 	internalReq := models.InternalNotificationRequest{
-		TemplateName: req.Recipient,
-		Recipient:    req.TemplateName,
+		TemplateName: req.TemplateName,
+		Recipient:    req.Recipient,
 		Placeholder:  req.Placeholders,
 	}
 
