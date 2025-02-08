@@ -6,6 +6,7 @@ import (
 	"ewallet-notification/external"
 	"ewallet-notification/internal/interfaces"
 	"ewallet-notification/internal/models"
+	"fmt"
 	"html/template"
 
 	"github.com/pkg/errors"
@@ -29,6 +30,10 @@ func (s *EmailService) SendEmail(ctx context.Context, req models.InternalNotific
 
 	var tpl bytes.Buffer
 	err = tmpl.Execute(&tpl, req.Placeholder)
+
+	fmt.Println("req.Placeholder")
+	fmt.Sprintln(req.Placeholder)
+
 	if err != nil {
 		return errors.Wrap(err, "failed to execute the placeholder")
 	}
